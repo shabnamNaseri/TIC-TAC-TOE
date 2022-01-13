@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="669.0" prefWidth="1146.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainPageController">
+   <children>
+      <Group layoutX="20.0" layoutY="20.0">
+         <children>
+            <ImageView fitHeight="126.0" fitWidth="116.0" layoutY="508.0">
+               <image>
+                  <Image url="@image/pngtree-pen-and-paper-games-tic-tac-toe-games-blue-png-image_3928567.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="87.0" fitWidth="85.0" layoutY="8.0">
+               <image>
+                  <Image url="@image/pngtree-avatar-icon-abstract-user-login-icon-png-image_3917181.jpg" />
+               </image>
+            </ImageView>
+            <VBox layoutX="87.0" layoutY="33.0" spacing="15.0">
+               <children>
+                  <Label fx:id="usernameLabelX" alignment="CENTER" prefHeight="55.0" prefWidth="110.0" textAlignment="CENTER">
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop color="#04a2d7" />
+                              <Stop color="#307186" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Label>
+                  <Label fx:id="pointLabelX" alignment="CENTER" prefHeight="55.0" prefWidth="110.0" textAlignment="CENTER">
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop color="#04a2d7" />
+                              <Stop color="#307186" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Label>
+               </children>
+            </VBox>
+            <HBox layoutX="449.0" layoutY="476.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="32.0" prefWidth="271.0" spacing="20.0">
+               <children>
+                  <Button fx:id="exitButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="31.0" prefWidth="132.0" text="Exit" textFill="#0fb6c9" />
+                  <Button fx:id="startGameButton" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="31.0" prefWidth="132.0" text="Start Game" textFill="#0fb6c9" />
+               </children>
+            </HBox>
+            <ImageView fitHeight="87.0" fitWidth="99.0" layoutX="967.0" layoutY="492.0">
+               <image>
+                  <Image url="@image/pngtree-vector-setting-icon-png-image_3767853.jpg" />
+               </image>
+            </ImageView>
+            <Button fx:id="settingsGameButton" layoutX="967.0" layoutY="589.0" mnemonicParsing="false" text="Settings Game" textFill="#0fb6c9" />
+            <FlowPane layoutX="449.0" layoutY="178.0" prefHeight="246.0" prefWidth="271.0">
+               <children>
+                  <Button fx:id="button1" alignment="CENTER" mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" textFill="#0fb6c9" />
+                  <Button fx:id="button2" alignment="CENTER" mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" textFill="#0fb6c9" />
+                  <Button fx:id="button3" alignment="CENTER" mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" textFill="#0fb6c9" />
+                  <Button fx:id="button4" alignment="CENTER" mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" textFill="#0fb6c9" />
+                  <Button fx:id="button5" alignment="CENTER" mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" textFill="#0fb6c9" />
+                  <Button fx:id="button6" alignment="CENTER" mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" textFill="#0fb6c9" />
+                  <Button fx:id="button7" alignment="CENTER" mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" textFill="#0fb6c9" />
+                  <Button fx:id="button8" alignment="CENTER" mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" textFill="#0fb6c9" />
+                  <Button fx:id="button9" alignment="CENTER" mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" textFill="#0fb6c9" />
+               </children>
+            </FlowPane>
+            <Label fx:id="winnerLabel" alignment="CENTER" layoutX="449.0" layoutY="124.0" prefHeight="44.0" prefWidth="271.0" textFill="#078e9a">
+               <font>
+                  <Font size="34.0" />
+               </font></Label>
+            <ImageView fitHeight="87.0" fitWidth="85.0" layoutX="997.0" layoutY="8.0">
+               <image>
+                  <Image url="@image/pngtree-user-avatar-login-interface-abstract-blue-icon-png-image_3917504.jpg" />
+               </image>
+            </ImageView>
+            <VBox layoutX="887.0" layoutY="52.0">
+               <children>
+                  <Label fx:id="usernameLabelO" alignment="CENTER" prefHeight="55.0" prefWidth="110.0" textAlignment="CENTER">
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop color="#04a2d7" />
+                              <Stop color="#307186" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Label>
+                  <Label fx:id="pointLabelO" alignment="CENTER" prefHeight="55.0" prefWidth="110.0" textAlignment="CENTER">
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop color="#04a2d7" />
+                              <Stop color="#307186" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </Group>
+   </children>
+</AnchorPane>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorPane"  maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="851.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginPageController">
+    <children>
+      <Group layoutX="83.0" layoutY="88.0">
+         <children>
+                <VBox fx:id="vBoxLabelUser" layoutX="53.0" layoutY="97.0" prefHeight="148.0" prefWidth="28.0" spacing="5.0">
+               <children>
+                  <ImageView fitHeight="55.0" fitWidth="56.0">
+                     <image>
+                        <Image url="@image/pngtree-avatar-icon-abstract-user-login-icon-png-image_3917181.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="49.0" fitWidth="57.0">
+                     <image>
+                        <Image url="@image/pngtree-vector-lock-icon-png-image_5169427.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+                </VBox>
+                <VBox fx:id="vBoxField" layoutX="125.0" layoutY="112.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="82.0" prefWidth="272.0" spacing="20.0">
+                    <children>
+                        <TextField fx:id="usernameField" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="82.0" prefWidth="272.0" promptText="username" />
+                  <PasswordField fx:id="passwordField" promptText="Password" />
+                    </children>
+                </VBox>
+                <VBox fx:id="vBoxButton" layoutX="276.0" layoutY="218.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="15.0">
+                    <children>
+                        <Button fx:id="loginButton" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="31.0" prefWidth="121.0" text="Login" textFill="#0fb6c9" />
+                        <Button fx:id="exitBtn" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="31.0" prefWidth="121.0" text="Exit" textFill="#0fb6c9" />
+                        <Button fx:id="registerBtn" alignment="CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="121.0" text="Register" textFill="#0fb6c9" />
+                    </children>
+                </VBox>
+                <Label fx:id="registerLabel" layoutX="70.0" layoutY="315.0" text="Don't have an account?" textFill="#168c96">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label fx:id="errorLbl" alignment="CENTER" layoutX="81.0" layoutY="63.0" prefHeight="21.0" prefWidth="265.0" textFill="#322a29" />
+                <Label fx:id="welcomLabel" alignment="CENTER" prefHeight="57.0" prefWidth="426.0" text="Welcome to Tic Tac Toe" textFill="#21b8dd">
+                    <font>
+                        <Font name="Tw Cen MT Condensed Extra Bold" size="36.0" />
+                    </font>
+                </Label>
+                <ImageView fitHeight="211.0" fitWidth="245.0" layoutX="455.0">
+                    <image>
+                        <Image url="@image/pngtree-pen-and-paper-games-tic-tac-toe-games-blue-png-image_3928567.jpg" />
+                    </image>
+                </ImageView>
+         </children>
+      </Group>
+    </children>
+</AnchorPane>
