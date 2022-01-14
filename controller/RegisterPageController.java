@@ -115,12 +115,25 @@ public class RegisterPageController implements Initializable {
     {
         if (checkFields()) {
             if (checkUsernameAndPassword()) {
-                User user = new User(name.getText(), username.getText(), password.getText());
+                User user = new User(name.getText(), username.getText(), password.getText(),password.getText().hashCode());
                 user.getUserArrayList().add(user);
                 errorLBL.setText("User successfully created ");
                 errorLBL.setAlignment(Pos.CENTER);
                 errorLBL.setTextFill(Paint.valueOf(("#006600")));
+                clearPage();
             }
         }
+    }
+
+    public void clearPage()
+    {
+        name.setText("");
+        username.setText("");
+        password.setText("");
+        confirmPassword.setText("");
+        errorLBL.setText("");
+        errorLBL.setText("User successfully created ");
+        errorLBL.setAlignment(Pos.CENTER);
+        errorLBL.setTextFill(Paint.valueOf(("#006600")));
     }
 }

@@ -19,7 +19,7 @@
          <children>
             <ImageView fitHeight="126.0" fitWidth="116.0" layoutY="508.0">
                <image>
-                  <Image url="@image/pngtree-pen-and-paper-games-tic-tac-toe-games-blue-png-image_3928567%20(1).jpg" />
+                  <Image url="@image/pngtree-pen-and-paper-games-tic-tac-toe-games-blue-png-image_3928567.jpg" />
                </image>
             </ImageView>
             <ImageView fitHeight="87.0" fitWidth="85.0" layoutY="8.0">
@@ -82,7 +82,7 @@
                </font></Label>
             <ImageView fitHeight="87.0" fitWidth="85.0" layoutX="997.0" layoutY="8.0">
                <image>
-                  <Image url="@image/pngtree-pen-and-paper-games-tic-tac-toe-games-blue-png-image_3928567.jpg" />
+                  <Image url="@image/pngtree-user-avatar-login-interface-abstract-blue-icon-png-image_3917504.jpg" />
                </image>
             </ImageView>
             <VBox layoutX="887.0" layoutY="52.0">

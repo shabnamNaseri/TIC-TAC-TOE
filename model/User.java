@@ -1,6 +1,5 @@
 package model;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class User
@@ -9,29 +8,17 @@ public class User
     private String username;
     private String password;
     private int hashPassword;
-    public static String pointX;
-    public static String pointO;
-    public static int point;
+    public static double point;
     private int id = -1;
     private static ArrayList<User> userArrayList = new ArrayList<>();
 
-    public User(String name, String username, String password) {
+    public User(String name, String username, String password,int hashPassword)
+    {
         this.name = name;
         this.username = username;
         this.password = password;
         this.hashPassword = hashPassword;
     }
-
-    public User(String name, String username, String password, int hashPassword, String pointX,String pointO, int id) {
-        this.name = name;
-        this.username = username;
-        this.password = password;
-        this.hashPassword = hashPassword;
-        this.pointX = pointX;
-        this.pointO = pointO;
-        this.id = id;
-    }
-
 
     public String getName() {
         return name;
@@ -67,11 +54,11 @@ public class User
         this.hashPassword = hashPassword;
     }
 
-    public int getPoint() {
+    public double getPoint() {
         return point;
     }
 
-    public void setPoint(int pointX) {
+    public void setPoint(double pointX) {
         this.point = pointX;
     }
 

@@ -53,11 +53,11 @@
                         <Font name="Tw Cen MT Condensed Extra Bold" size="36.0" />
                     </font>
                 </Label>
-                <ImageView fitHeight="211.0" fitWidth="245.0" layoutX="455.0">
-                    <image>
-                        <Image url="@image/pngtree-pen-and-paper-games-tic-tac-toe-games-blue-png-image_3928567%20(1).jpg" />
-                    </image>
-                </ImageView>
+            <ImageView fitHeight="155.0" fitWidth="166.0" layoutX="455.0" layoutY="63.0">
+               <image>
+                  <Image url="@image/pngtree-pen-and-paper-games-tic-tac-toe-games-blue-png-image_3928567.jpg" />
+               </image>
+            </ImageView>
          </children>
       </Group>
     </children>

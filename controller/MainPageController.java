@@ -11,6 +11,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import model.User;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -276,12 +278,22 @@ public class MainPageController implements Initializable {
     {
         pointPlayer_X = pointPlayer_X + number;
         pointLabelX.setText(String.valueOf(pointPlayer_X));
+        ArrayList<User> users = User.getUserArrayList();
+        for (User each : users) {
+            if (PlayersNamePageController.username_X.equals(each.getUsername()))
+            {each.point = pointPlayer_X;}
+        }
     }
 
     public void point_O(double number)
     {
         pointPlayer_O = pointPlayer_O + number;
         pointLabelO.setText(String.valueOf(pointPlayer_O));
+        ArrayList<User> users = User.getUserArrayList();
+        for (User each : users) {
+            if (PlayersNamePageController.username_O.equals(each.getUsername()))
+            {each.point = pointPlayer_O;}
+        }
     }
 
     public void clearButtons()

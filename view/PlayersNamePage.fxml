@@ -46,7 +46,7 @@
             </Label>
             <ImageView fitHeight="125.0" fitWidth="132.0" layoutX="544.0" layoutY="325.0">
                <image>
-                  <Image url="@image/pngtree-pen-and-paper-games-tic-tac-toe-games-blue-png-image_3928567%20(1).jpg" />
+                  <Image url="@image/pngtree-pen-and-paper-games-tic-tac-toe-games-blue-png-image_3928567.jpg" />
                </image>
             </ImageView>
             <Button fx:id="enterGameButton" alignment="CENTER" layoutX="255.0" layoutY="314.0" mnemonicParsing="false" text="Enter Game" textFill="#05bcc9">

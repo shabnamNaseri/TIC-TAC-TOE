@@ -46,18 +46,29 @@ public class SettingsPageController implements Initializable {
         stage.close();
     }
 
-    private void changeTheGameRound() {
+    private boolean changeTheGameRound()
+    {
         try {
             String roundString = roundField.getText();
             round = Integer.parseUnsignedInt(roundString);
+            if(round <= 0)
+            {
+                errorLabel.setFont(Font.font(15));
+                errorLabel.setText("The number entered is incorrect!");
+                errorLabel.setAlignment(Pos.CENTER);
+                errorLabel.setTextFill(Paint.valueOf(("#FF0000")));
+                return false;
+            }
             errorLabel.setFont(Font.font(15));
             errorLabel.setText("The game round was changed successfully");
             errorLabel.setAlignment(Pos.CENTER);
             errorLabel.setTextFill(Paint.valueOf("#006600"));
+            return true;
         } catch (NumberFormatException e) {
             errorLabel.setText("Please fill in the fields !!");
             errorLabel.setAlignment(Pos.CENTER);
             errorLabel.setTextFill(Paint.valueOf(("#FF0000")));
+            return false;
         }
     }
 }

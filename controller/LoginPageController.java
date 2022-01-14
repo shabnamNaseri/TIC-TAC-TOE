@@ -117,7 +117,7 @@ public class LoginPageController implements Initializable
         if (checkFields()) {
             for (User each : users) {
                 if (usernameField.getText().equals(each.getUsername())
-                        && passwordField.getText().equals(each.getPassword()))
+                        && passwordField.getText().hashCode()==(each.getHashPassword()))
                 {
                     errorLbl.setText("");
                     return true;

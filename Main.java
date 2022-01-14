@@ -13,7 +13,6 @@ public class Main extends Application
     @Override
     public void start(Stage primaryStage) throws Exception {
         AnchorPane root = FXMLLoader.load(this.getClass().getResource("view/LoginPage.fxml"));
-        //   loader.load();
         primaryStage.setTitle("TIC-TAC-TOE");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
