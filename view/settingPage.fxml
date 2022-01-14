@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SettingsPageController">
+   <children>
+      <Group layoutX="14.0">
+         <children>
+            <ImageView fitHeight="108.0" fitWidth="125.0" layoutY="14.0">
+               <image>
+                  <Image url="@image/pngtree-avatar-icon-abstract-user-login-icon-png-image_3917181.jpg" />
+               </image>
+            </ImageView>
+            <HBox layoutX="6.0" layoutY="310.0" prefHeight="31.0" prefWidth="252.0" spacing="13.0">
+               <children>
+                  <Button fx:id="exitButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="120.0" text="Exit" textFill="#0fb6c9" />
+                  <Button fx:id="recordsButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="31.0" prefWidth="120.0" text="Show Records" textAlignment="CENTER" textFill="#0fb6c9" />
+               </children>
+            </HBox>
+            <Pane layoutX="269.0" prefHeight="400.0" prefWidth="317.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="23.0" prefHeight="73.0" prefWidth="289.0" text="Change the number of game rounds" textFill="#0c9eae">
+                     <font>
+                        <Font name="Open Sans Bold Italic" size="17.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="roundField" layoutX="29.0" layoutY="231.0" prefHeight="31.0" prefWidth="260.0" promptText="Number Of Rounds" />
+                  <Button fx:id="doneButton" layoutX="99.0" layoutY="307.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="120.0" text="Done" textFill="#0fb6c9" />
+                  <Label fx:id="errorLabel" alignment="CENTER" layoutX="13.0" layoutY="137.0" prefHeight="21.0" prefWidth="289.0" />
+               </children>
+            </Pane>
+         </children>
+      </Group>
+   </children>
+</AnchorPane>

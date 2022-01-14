@@ -12,7 +12,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import model.User;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -51,18 +50,19 @@ public class PlayersNamePageController implements Initializable
 
     private void openMainPage() throws IOException
     {
-        if(checkUsername_O() && checkUsername_X()) {
+        if(checkUsername_O() && checkUsername_X()){
             AnchorPane root = FXMLLoader.load(getClass().getResource("../view/mainPage.fxml"));
-            Stage registerStage = new Stage();
-            registerStage.setTitle("Main Page");
-            registerStage.setScene(new Scene(root));
-            registerStage.show();
+            Stage mainStage = new Stage();
+            mainStage.setTitle("Main Page");
+            mainStage.setScene(new Scene(root));
+            mainStage.show();
+            LoginPageController.playersNameStage.close();
         }
     }
 
     private boolean checkFields()
     {
-        if (!usernamePlayer_O.getText().isEmpty() && !usernamePlayer_X.getText().isEmpty())
+        if (usernamePlayer_O.getText().isEmpty() || usernamePlayer_X.getText().isEmpty())
         {
             errorLabel.setText("Please fill in all fields !!");
             errorLabel.setAlignment(Pos.CENTER);
@@ -77,7 +77,8 @@ public class PlayersNamePageController implements Initializable
         ArrayList<User> users = User.getUserArrayList();
         if (checkFields()) {
             for (User each : users) {
-                if (usernamePlayer_X.getText().equals(each.getUsername()))
+                if (usernamePlayer_X.getText().equals(each.getUsername()) && !usernamePlayer_X.getText()
+                        .equals(usernamePlayer_O.getText()))
                 {
                     username_X = each.getUsername();
                     errorLabel.setText("");
@@ -92,7 +93,7 @@ public class PlayersNamePageController implements Initializable
             errorLabel.setTextFill(Paint.valueOf(("#FF0000")));
             return false;
         }
-        errorLabel.setText("Username is incorrect!");
+        errorLabel.setText("Usernames is incorrect!");
         errorLabel.setAlignment(Pos.CENTER);
         errorLabel.setTextFill(Paint.valueOf(("#FF0000")));
         return false;
@@ -103,7 +104,8 @@ public class PlayersNamePageController implements Initializable
         ArrayList<User> users = User.getUserArrayList();
         if (checkFields()) {
             for (User each : users) {
-                if (usernamePlayer_O.getText().equals(each.getUsername()))
+                if (usernamePlayer_O.getText().equals(each.getUsername()) && (!usernamePlayer_X.getText()
+                        .equals(usernamePlayer_O.getText())))
                 {
                     username_O = each.getUsername();
                     errorLabel.setText("");
@@ -118,7 +120,7 @@ public class PlayersNamePageController implements Initializable
             errorLabel.setTextFill(Paint.valueOf(("#FF0000")));
             return false;
         }
-        errorLabel.setText("Username is incorrect!");
+        errorLabel.setText("Usernames is incorrect!");
         errorLabel.setAlignment(Pos.CENTER);
         errorLabel.setTextFill(Paint.valueOf(("#FF0000")));
         return false;

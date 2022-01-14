@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane"  maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="851.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginPageController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="851.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginPageController">
     <children>
       <Group layoutX="83.0" layoutY="88.0">
          <children>
@@ -55,7 +55,7 @@
                 </Label>
                 <ImageView fitHeight="211.0" fitWidth="245.0" layoutX="455.0">
                     <image>
-                        <Image url="@image/pngtree-pen-and-paper-games-tic-tac-toe-games-blue-png-image_3928567.jpg" />
+                        <Image url="@image/pngtree-pen-and-paper-games-tic-tac-toe-games-blue-png-image_3928567%20(1).jpg" />
                     </image>
                 </ImageView>
          </children>

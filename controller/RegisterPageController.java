@@ -111,7 +111,8 @@ public class RegisterPageController implements Initializable {
         return  false;
     }
 
-    public void createUser() {
+    public void createUser()
+    {
         if (checkFields()) {
             if (checkUsernameAndPassword()) {
                 User user = new User(name.getText(), username.getText(), password.getText());

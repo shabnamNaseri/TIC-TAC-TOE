@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="457.0" prefWidth="725.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PlayersNamePageController">
+<AnchorPane prefHeight="526.0" prefWidth="664.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PlayersNamePageController">
    <children>
-      <Group layoutX="38.0" layoutY="4.0">
+      <Group layoutX="47.0" layoutY="38.0" AnchorPane.bottomAnchor="38.0" AnchorPane.leftAnchor="38.0" AnchorPane.rightAnchor="38.0" AnchorPane.topAnchor="38.0">
          <children>
             <VBox alignment="CENTER" layoutY="150.0" spacing="40.0">
                <children>
@@ -46,10 +46,10 @@
             </Label>
             <ImageView fitHeight="125.0" fitWidth="132.0" layoutX="544.0" layoutY="325.0">
                <image>
-                  <Image url="@image/pngtree-pen-and-paper-games-tic-tac-toe-games-blue-png-image_3928567.jpg" />
+                  <Image url="@image/pngtree-pen-and-paper-games-tic-tac-toe-games-blue-png-image_3928567%20(1).jpg" />
                </image>
             </ImageView>
-            <Button fx:id="enterGameButton" alignment="CENTER" layoutX="275.0" layoutY="306.0" mnemonicParsing="false" text="Enter Game" textFill="#05bcc9">
+            <Button fx:id="enterGameButton" alignment="CENTER" layoutX="255.0" layoutY="314.0" mnemonicParsing="false" text="Enter Game" textFill="#05bcc9">
                <font>
                   <Font size="16.0" />
                </font>

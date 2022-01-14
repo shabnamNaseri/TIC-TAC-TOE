@@ -44,6 +44,7 @@ public class LoginPageController implements Initializable
     private Label errorLbl;
 
     static Stage registerStage = null;
+    static Stage playersNameStage;
 
     @Override
     public void initialize(URL location, ResourceBundle resources)
@@ -80,7 +81,7 @@ public class LoginPageController implements Initializable
     {
         if (registerStage == null) {
             AnchorPane root = FXMLLoader.load(getClass().getResource("../view/RegisterPage.fxml"));
-            Stage registerStage = new Stage();
+            registerStage = new Stage();
             registerStage.setTitle("Register Page");
             registerStage.setScene(new Scene(root));
             registerStage.show();
@@ -91,11 +92,10 @@ public class LoginPageController implements Initializable
     {
         if(checkLogin()) {
             AnchorPane root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource
-                    ("../view/PlayersNamePage.fxml")));
-            Stage registerStage = new Stage();
-            registerStage.setTitle("Player Name Page");
-            registerStage.setScene(new Scene(root));
-            registerStage.show();
+            ("../view/PlayersNamePage.fxml")));
+            playersNameStage = new Stage();
+            playersNameStage.setScene(new Scene(root));
+            playersNameStage.show();
         }
     }
 

@@ -11,17 +11,14 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.ResourceBundle;
+import java.util.concurrent.atomic.AtomicInteger;
 
-import static java.lang.Integer.parseInt;
-
-public class MainPageController implements Initializable
-{
+public class MainPageController implements Initializable {
     @FXML
     private Label usernameLabelX;
 
@@ -78,19 +75,30 @@ public class MainPageController implements Initializable
     private int player = 0;
     private double pointPlayer_X = 0;
     private double pointPlayer_O = 0;
+    private int counter = 0;
+    private int number = 0;
+    private int roundNumber = 3;
 
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
         showUsernameInPage_O();
         showUsernameInPage_X();
-        buttons = new ArrayList<>(Arrays.asList(button1,button2,button3,button4,button5,button6,button7,button8,button9));
+        buttons = new ArrayList<>(Arrays.asList(button1, button2, button3, button4, button5, button6, button7,
+                button8, button9));
         startGameButton.setOnAction(event -> {
             startGameButton.setDisable(true);
-           buttons.forEach(button -> {
-               setActionButton(button);
-           });
-
+            winnerLabel.setText("");
+            number++;
+            setRound();
+            if (number > roundNumber) {
+                number = 0;
+                buttons.forEach(button -> button.setDisable(true));
+                winnerSelection();
+            }
+            buttons.forEach(button -> {
+                setActionButton(button);
+            });
         });
         startGameButton.setDisable(false);
         exitButton.setOnAction(event -> exitPage());
@@ -114,21 +122,18 @@ public class MainPageController implements Initializable
 
     private void exitPage()
     {
-        Stage stage = (Stage)exitButton.getScene().getWindow();
+        Stage stage = (Stage) exitButton.getScene().getWindow();
         stage.close();
     }
 
     public void playerSymbol(Button playerSymbol)
     {
-        if (player % 2 == 0)
-        {
+        if (player % 2 == 0) {
             playerSymbol.setText("O");
             playerSymbol.setAlignment(Pos.CENTER);
             playerSymbol.setTextFill(Paint.valueOf(("#35dbe4")));
             player = 1;
-        }
-        else
-        {
+        } else {
             playerSymbol.setText("X");
             playerSymbol.setAlignment(Pos.CENTER);
             playerSymbol.setTextFill(Paint.valueOf(("#0f5cc6")));
@@ -152,23 +157,37 @@ public class MainPageController implements Initializable
     {
         buttonAction.setOnMouseClicked(mouseEvent -> {
             playerSymbol(buttonAction);
+            counter++;
             checkTheEndOfTheGame();
         });
     }
 
     public void checkTheEndOfTheGame()
     {
-        if(theWinnerIsX())
-        {showTheWinningText_X();clearButtons();}
+        if (theWinnerIsX()) {
+            winnerLabel.setText("X Is The Winner!");
+            point_X(1);
+            winnerLabel.setAlignment(Pos.CENTER);
+            winnerLabel.setTextFill(Paint.valueOf(("#078e9a")));
+            startGameButton.setDisable(false);
+            clearButtons();
+        }
 
-        if(theWinnerIsO())
-        {showTheWinningText_O();clearButtons();}
+        if (theWinnerIsO()) {
+            winnerLabel.setText("O Is The Winner!");
+            point_O(1);
+            winnerLabel.setAlignment(Pos.CENTER);
+            winnerLabel.setTextFill(Paint.valueOf(("#078e9a")));
+            startGameButton.setDisable(false);
+            clearButtons();
+        }
 
-        buttons.forEach(button -> {
-            if (!theGameEqualised_O() && !theGameEqualised_X()) {
-                showText();
-            }
-        });
+        if (counter == 9 && theGameEqualised()) {
+            point_X(0.5);
+            point_O(0.5);
+            showText();
+            clearButtons();
+        }
     }
 
     public boolean theWinnerIsX()
@@ -176,28 +195,28 @@ public class MainPageController implements Initializable
         for (int i = 0; i < buttons.size(); i++) {
             if ((button1.getText().equals("X") && button1.getText().equals(button2.getText())
                     && button1.getText().equals(button3.getText()))) {
-                point_X();return true;
+                return true;
             } else if (button4.getText().equals("X") && button4.getText().equals(button5.getText())
                     && button4.getText().equals(button6.getText())) {
-                point_X();return true;
+                return true;//point_X(1);counter++;return true;
             } else if (button7.getText().equals("X") && button7.getText().equals(button8.getText())
                     && button7.getText().equals(button9.getText())) {
-                point_X();return true;
+                return true;
             } else if (button1.getText().equals("X") && button1.getText().equals(button5.getText())
                     && button1.getText().equals(button9.getText())) {
-                point_X();return true;
+                return true;
             } else if (button3.getText().equals("X") && button3.getText().equals(button5.getText())
                     && button3.getText().equals(button7.getText())) {
-                point_X();return true;
+                return true;
             } else if (button1.getText().equals("X") && button1.getText().equals(button4.getText())
                     && button1.getText().equals(button7.getText())) {
-                point_X();return true;
+                return true;
             } else if (button2.getText().equals("X") && button2.getText().equals(button5.getText())
                     && button2.getText().equals(button8.getText())) {
-                point_X();return true;
+                return true;
             } else if (button3.getText().equals("X") && button3.getText().equals(button6.getText())
                     && button3.getText().equals(button9.getText())) {
-                point_X();return true;
+                return true;
             }
         }
         return false;
@@ -208,144 +227,93 @@ public class MainPageController implements Initializable
         for (int i = 0; i < buttons.size(); i++) {
             if ((button1.getText().equals("O") && button1.getText().equals(button2.getText())
                     && button1.getText().equals(button3.getText()))) {
-                point_O();return true;
+                return true;
             } else if (button4.getText().equals("O") && button4.getText().equals(button5.getText())
                     && button4.getText().equals(button6.getText())) {
-                point_O();return true;
+                return true;
             } else if (button7.getText().equals("O") && button7.getText().equals(button8.getText())
                     && button7.getText().equals(button9.getText())) {
-                point_O();return true;
+                return true;
             } else if (button1.getText().equals("O") && button1.getText().equals(button5.getText())
                     && button1.getText().equals(button9.getText())) {
-                point_O();return true;
+                return true;
             } else if (button3.getText().equals("O") && button3.getText().equals(button5.getText())
                     && button3.getText().equals(button7.getText())) {
-                point_O();return true;
+                return true;
             } else if (button1.getText().equals("O") && button1.getText().equals(button4.getText())
                     && button1.getText().equals(button7.getText())) {
-                point_O();return true;
+                return true;
             } else if (button2.getText().equals("O") && button2.getText().equals(button5.getText())
                     && button2.getText().equals(button8.getText())) {
-                point_O();return true;
+                return true;
             } else if (button3.getText().equals("O") && button3.getText().equals(button6.getText())
                     && button3.getText().equals(button9.getText())) {
-                point_O();return true;
+                return true;
             }
         }
         return false;
     }
 
-    public boolean theGameEqualised_O()
+    public boolean theGameEqualised()
     {
-        for (int i = 0; i < buttons.size(); i++) {
-            if (!(button1.getText().equals("O") && button1.getText().equals(button2.getText()) &&
-                    button1.getText().equals(button3.getText())))
-            {return true;}
-            else if (!(button4.getText().equals("O") && button4.getText().equals(button5.getText()) &&
-                    button4.getText().equals(button6.getText())))
-            {return true;}
-            else if (!(button7.getText().equals("O") && button7.getText().equals(button8.getText()) &&
-                    button7.getText().equals(button9.getText())))
-            {return true;}
-            else if (!(button1.getText().equals("O")  && button1.getText().equals(button5.getText()) &&
-                    button1.getText().equals(button9.getText())))
-            {return true;}
-            else if (!(button3.getText().equals("O") && button3.getText().equals(button5.getText()) &&
-                    button3.getText().equals(button7.getText())))
-            {return true;}
-            else if (!(button1.getText().equals("O")  && button1.getText().equals(button4.getText()) &&
-                    button1.getText().equals(button7.getText())))
-            {return true;}
-            else if (!(button2.getText().equals("O")  && button2.getText().equals(button5.getText()) &&
-                    button2.getText().equals(button8.getText())))
-            {return true;}
-            else if (!(button3.getText().equals("O") && button3.getText().equals(button6.getText()) &&
-                    button3.getText().equals(button9.getText())))
-            {return true;}
+        if (!theWinnerIsX() && !theWinnerIsO()) {
+            return true;
         }
         return false;
-    }
-
-    public boolean theGameEqualised_X()
-    {
-        for (int i = 0; i < buttons.size(); i++) {
-            if (!(button1.getText().equals("X") && button1.getText().equals(button2.getText()) &&
-                    button1.getText().equals(button3.getText())))
-            {return true;}
-            else if (!(button4.getText().equals("X") && button4.getText().equals(button5.getText()) &&
-                    button4.getText().equals(button6.getText())))
-            {return true;}
-            else if (!(button7.getText().equals("X") && button1.getText().equals(button5.getText()) &&
-                    button1.getText().equals(button9.getText())))
-            {return true;}
-            else if (!(button3.getText().equals("X")&& button3.getText().equals(button5.getText()) &&
-                    button3.getText().equals(button7.getText())))
-            {return true;}
-            else if (!(button1.getText().equals("X") && button1.getText().equals(button4.getText()) &&
-                    button1.getText().equals(button7.getText())))
-            {return true;}
-            else if (!(button2.getText().equals("X")  && button2.getText().equals(button5.getText()) &&
-                    button2.getText().equals(button8.getText())))
-            {return true;}
-            else if (!(button3.getText().equals("X") && button3.getText().equals(button6.getText()) &&
-                    button3.getText().equals(button9.getText())))
-            {return true;}
-        }
-        return false;
-    }
-
-    public void showTheWinningText_X()
-    {
-        winnerLabel.setText("X Is The Winner!");
-        winnerLabel.setAlignment(Pos.CENTER);
-        winnerLabel.setTextFill(Paint.valueOf(("#078e9a")));
-        startGameButton.setDisable(false);
-    }
-
-    public void showTheWinningText_O()
-    {
-        winnerLabel.setText("O Is The Winner!");
-        winnerLabel.setAlignment(Pos.CENTER);
-        winnerLabel.setTextFill(Paint.valueOf(("#078e9a")));
-        startGameButton.setDisable(false);
     }
 
     //the text show of the game is equal
     public void showText()
     {
+        startGameButton.setDisable(false);
         winnerLabel.setFont(Font.font(25));
         winnerLabel.setText("The Game Equalised!!");
         winnerLabel.setAlignment(Pos.CENTER);
         winnerLabel.setTextFill(Paint.valueOf(("#078e9a")));
-        startGameButton.setDisable(false);
     }
 
-    public void point_X()
+    public void point_X(double number)
     {
-        pointPlayer_X = pointPlayer_X + 1;
+        pointPlayer_X = pointPlayer_X + number;
         pointLabelX.setText(String.valueOf(pointPlayer_X));
     }
 
-    public void point_O()
+    public void point_O(double number)
     {
-        pointPlayer_O = pointPlayer_O + 1;
+        pointPlayer_O = pointPlayer_O + number;
         pointLabelO.setText(String.valueOf(pointPlayer_O));
     }
 
     public void clearButtons()
     {
-        int counter = 0;
+        counter = 0;
         buttons.forEach(button -> button.setText(""));
-        winnerLabel.setText("");
-        counter++;
-        if(counter > 3)
-        {
+    }
+
+    private void winnerSelection()
+    {
+       if(pointPlayer_X > pointPlayer_O)
+       {
+           winnerLabel.setFont(Font.font(25));
+           winnerLabel.setText("The winner is player X!");
+           winnerLabel.setAlignment(Pos.CENTER);
+           winnerLabel.setTextFill(Paint.valueOf(("#078e9a")));
+       }
+       else if(pointPlayer_X < pointPlayer_O)
+       {
             winnerLabel.setFont(Font.font(25));
-            startGameButton.setDisable(true);
-            winnerLabel.setText("The Number Of Round Is Over!");
+           winnerLabel.setText("The winner is player O!");
             winnerLabel.setAlignment(Pos.CENTER);
             winnerLabel.setTextFill(Paint.valueOf(("#078e9a")));
-        }
-
+       }
+       else {
+           winnerLabel.setFont(Font.font(25));
+           winnerLabel.setText("Points are equal!");
+           winnerLabel.setAlignment(Pos.CENTER);
+           winnerLabel.setTextFill(Paint.valueOf(("#078e9a")));
+       }
     }
+
+    private void setRound()
+    {roundNumber = SettingsPageController.round;}
 }
